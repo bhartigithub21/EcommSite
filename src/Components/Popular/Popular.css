@@ -1,0 +1,52 @@
+.popular {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	padding: 50px 20px;
+	background-color: #fafafa;
+	text-align: center;
+}
+
+.popular h1 {
+	color: #171717;
+	font-size: 42px;
+	font-weight: 600;
+	margin: 0;
+}
+
+.popular hr {
+	width: 120px;
+	height: 4px;
+	border-radius: 10px;
+	background: #252525;
+	margin-top: 10px;
+}
+
+/* ✅ Product grid */
+.popular-item {
+	margin-top: 40px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+	gap: 20px;
+	width: 100%;
+	max-width: 1200px;
+}
+
+/* ✅ Product card */
+.popular-item .card {
+	border: 1px solid #eaeaea;
+	border-radius: 8px;
+	padding: 10px;
+	background: #fff;
+	text-align: center;
+}
+
+/* ✅ Image size fixed */
+.popular-item .card img {
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 6px;
+	margin-bottom: 10px;
+}
