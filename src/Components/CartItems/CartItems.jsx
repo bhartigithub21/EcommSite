@@ -8,6 +8,7 @@ const CartItems = () => {
 		useContext(ShopContext)
 
 	localStorage.setItem("name", "rahul")
+	console.log(cartItems)
 
 	return (
 		<div className='cartitems'>
