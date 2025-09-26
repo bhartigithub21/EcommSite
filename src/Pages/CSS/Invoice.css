@@ -1,0 +1,87 @@
+.invoice-form {
+	max-width: 700px;
+	margin: 30px auto;
+	padding: 20px;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-form h2 {
+	text-align: center;
+	margin-bottom: 20px;
+	color: #333;
+}
+
+.customer-info,
+.invoice-items {
+	margin-bottom: 20px;
+}
+
+.customer-info input,
+.customer-info textarea,
+.invoice-item input {
+	width: 100%;
+	padding: 10px;
+	margin: 8px 0;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.invoice-item {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.invoice-item input {
+	flex: 1;
+}
+
+.invoice-item button {
+	background: red;
+	color: white;
+	border: none;
+	padding: 6px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.invoice-item button:hover {
+	background: darkred;
+}
+
+.invoice-items button {
+	margin-top: 10px;
+	background: green;
+	color: white;
+	border: none;
+	padding: 8px 12px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.invoice-items button:hover {
+	background: darkgreen;
+}
+
+.invoice-total {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: right;
+	margin-top: 15px;
+}
+
+.generate-btn {
+	width: 100%;
+	padding: 12px;
+	background: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.generate-btn:hover {
+	background: #0056b3;
+}
