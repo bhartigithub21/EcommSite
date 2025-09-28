@@ -51,6 +51,11 @@ const InvoiceForm = () => {
     } else setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
   return (
     <div
       style={{
@@ -63,7 +68,7 @@ const InvoiceForm = () => {
       }}
     >
       <h2>Invoice Form</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         {/* Customer Details */}
         <Partydetails
           heading="cust info."
