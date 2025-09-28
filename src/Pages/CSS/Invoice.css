@@ -73,13 +73,14 @@
 }
 
 .generate-btn {
-  width: 100%;
+  /* width: 1%; */
   padding: 12px;
   background: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
 }
 
 .generate-btn:hover {
