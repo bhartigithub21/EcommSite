@@ -25,6 +25,14 @@ const Itemdetails = (props) => {
     });
   };
 
+  const getTotal = () => {
+    return (
+      formData?.items?.reduce((acc, curr) => {
+        return acc + curr?.quantity * curr?.price;
+      }, 0) || 0
+    );
+  };
+
   return (
     <div>
       {" "}
@@ -66,6 +74,11 @@ const Itemdetails = (props) => {
         <button type="button" onClick={() => handleAddItem()}>
           ➕ Add Item
         </button>
+
+        {/* Total */}
+        <div className="invoice-total">
+          <h3>Total: ₹ {getTotal()}</h3>
+        </div>
       </div>
     </div>
   );

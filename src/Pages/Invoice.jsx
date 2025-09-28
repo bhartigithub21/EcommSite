@@ -25,34 +25,20 @@ const InvoiceForm = () => {
     ifscCode: "",
   });
 
-  const getTotal = () => {
-    return (
-      formData?.items?.reduce((acc, curr) => {
-        return acc + curr?.quantity * curr?.price;
-      }, 0) || 0
-    );
-  };
-
   const handleValueChange = (e, index) => {
     const { name, value } = e.target;
     if (name == "product" || name == "quantity" || name == "price") {
-      setFormData((prev) => {
-        return {
-          ...prev,
-          items: prev.items?.map((el, idx) => {
-            if (idx == index) {
-              return { ...el, [name]: value };
-            } else {
-              return el;
-            }
-          }),
-        };
-      });
+      setFormData((prev) => ({
+        ...prev,
+        items: prev.items.map(
+          (el, idx) => (idx = index ? { ...el, [name]: value } : el)
+        ),
+      }));
     } else setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log(formData);
   };
 
@@ -99,11 +85,6 @@ const InvoiceForm = () => {
           setFormData={setFormData}
           handleValueChange={handleValueChange}
         />
-
-        {/* Total */}
-        <div className="invoice-total">
-          <h3>Total: ₹ {getTotal()}</h3>
-        </div>
 
         <button type="submit" className="generate-btn">
           Generate Invoice
