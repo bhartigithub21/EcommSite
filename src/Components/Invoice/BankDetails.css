@@ -1,0 +1,50 @@
+.bank-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #f3f4f6; /* gray-100 */
+}
+
+.bank-form {
+	width: 100%;
+	max-width: 800px;
+	background: white;
+	padding: 2rem;
+	border-radius: 1rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bank-form h2 {
+	font-size: 1.5rem;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+
+.bank-grid {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 1rem;
+}
+
+.bank-form label {
+	display: block;
+	margin-bottom: 0.25rem;
+	font-weight: 500;
+	color: #374151; /* gray-700 */
+}
+
+.bank-form input {
+	width: 100%;
+	border: 1px solid #d1d5db; /* gray-300 */
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	outline: none;
+	transition: all 0.2s ease-in-out;
+}
+
+.bank-form input:focus {
+	border-color: #3b82f6; /* blue-500 */
+	box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
