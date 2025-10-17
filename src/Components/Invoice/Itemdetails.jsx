@@ -1,29 +1,11 @@
 import React from "react"
+import { useFormContext } from "react-hook-form"
 
 const Itemdetails = (props) => {
-	const { formData, setFormData, handleValueChange } = props
-
-	const handleAddItem = () => {
-		setFormData((prev) => {
-			return {
-				...prev,
-				items: [...prev.items, { product: "", quantity: 1, price: 1 }],
-			}
-		})
-	}
-
-	const handleRemoveItem = (index) => {
-		setFormData((prev) => {
-			return {
-				...prev,
-				items: prev.items.filter((el, id) => {
-					if (id !== index) {
-						return el
-					}
-				}),
-			}
-		})
-	}
+	const {
+		register,
+		formState: { errors },
+	} = useFormContext()
 
 	const getTotal = () => {
 		return (

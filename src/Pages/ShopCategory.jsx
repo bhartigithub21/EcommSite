@@ -17,12 +17,6 @@ const ShopCategory = (props) => {
 		item.name.toLowerCase().includes(searchText.toLowerCase())
 	)
 
-	// if (searchText.trim() !== "") {
-	// 	filteredproducts = filteredproducts.filter((item) =>
-	// 		item.name.toLowerCase().includes(searchText.toLowerCase())
-	// 	)
-	// }
-
 	if (props.category) {
 		filteredproducts = filteredproducts.filter(
 			(item) => item.category === props.category

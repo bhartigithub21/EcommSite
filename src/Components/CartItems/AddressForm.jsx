@@ -24,29 +24,29 @@ export default function AddressForm() {
 
 	return (
 		<div className='address-container'>
-			{/* Header */}
 			<div className='address-header'>
 				<h1>Shipping Address</h1>
 				<p>Please provide your complete delivery details</p>
 			</div>
 
-			{/* Form */}
 			<form
 				onSubmit={handleSubmit(submittingFunction)}
 				className='address-form'>
-				{/* Full Name */}
 				<div className='form-group'>
 					<label>
 						Full Name <span className='required'>*</span>
 					</label>
 					<input
-						{...register("fullName", { required: true })}
+						{...register("fullName", {
+							minLength: 1,
+							maxLength: 150,
+							required: true,
+						})}
 						type='text'
 						placeholder='John Doe'
 					/>
 				</div>
 
-				{/* Phone Number */}
 				<div className='form-group'>
 					<label>
 						Phone Number <span className='required'>*</span>
@@ -69,7 +69,6 @@ export default function AddressForm() {
 					<p style={{ color: "red" }}>{errors?.phoneNumber?.message || ""}</p>
 				</div>
 
-				{/* Street Address */}
 				<div className='form-group'>
 					<label>Street Address</label>
 					<textarea
@@ -79,7 +78,6 @@ export default function AddressForm() {
 					<p style={{ color: "red" }}>{errors?.streetAddress?.message}</p>
 				</div>
 
-				{/* City & State */}
 				<div className='form-row'>
 					<div className='form-group'>
 						<label>Country</label>
@@ -109,7 +107,6 @@ export default function AddressForm() {
 					</div>
 				</div>
 
-				{/* Zip Code & Country */}
 				<div className='form-row'>
 					<div className='form-group'>
 						<label>City</label>
@@ -130,7 +127,6 @@ export default function AddressForm() {
 					</div>
 				</div>
 
-				{/* Save Button */}
 				<div>
 					<button disabled={!isValid} type='submit'>
 						Save Address

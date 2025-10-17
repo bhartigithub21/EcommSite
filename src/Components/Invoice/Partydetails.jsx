@@ -1,7 +1,13 @@
 import React, { useEffect } from "react"
+import { useFormContext } from "react-hook-form"
 
 const Partydetails = (props) => {
-	const { heading, formData, setFormData, handleValueChange, subject } = props
+	const { heading, subject } = props
+
+	const {
+		register,
+		formState: { errors },
+	} = useFormContext()
 
 	const fetchCustomerDetailsFromGSTIN = async (gstin, type) => {
 		const response = {
@@ -68,11 +74,11 @@ const Partydetails = (props) => {
 		} else {
 			setFormData((prev) => ({
 				...prev,
-				custfullName: "",
-				custaddress: "",
-				custstcd: "",
-				custpincode: "",
-				custlocation: "",
+				sellerfullName: "",
+				selleraddress: "",
+				sellerstcd: "",
+				sellerpincode: "",
+				sellerlocation: "",
 			}))
 		}
 	}, [formData?.sellergstin])
@@ -88,8 +94,7 @@ const Partydetails = (props) => {
 				}}>
 				<input
 					type='text'
-					placeholder='Customer'
-					gst
+					placeholder='Customer gst'
 					onChange={handleValueChange}
 					name={subject === "customer" ? "custgstin" : "sellergstin"}
 					value={
