@@ -6,12 +6,14 @@ import ShopCategory from "./Pages/ShopCategory"
 import Product from "./Pages/Product"
 import Cart from "./Pages/Cart"
 import LoginSignup from "./Pages/LoginSignup"
+import LoginSignup2 from "./Pages/LoginSignup2"
 import Invoice from "./Pages/Invoice"
 import Footer from "./Components/Footer/Footer"
 import men_banner from "./Components/Assets/banner_mens.png"
 import women_banner from "./Components/Assets/banner_women.png"
 import kid_banner from "./Components/Assets/banner_kids.png"
 import About from "./Pages/About"
+import Invoice2 from "./Pages/Invoice2"
 
 function App() {
 	return (
@@ -36,8 +38,8 @@ function App() {
 						<Route path=':productId' element={<Product />} />
 					</Route>
 					<Route path='/cart' element={<Cart />} />
-					<Route path='/login' element={<LoginSignup />} />
-					<Route path='/invoice' element={<Invoice />} />
+					<Route path='/login' element={<LoginSignup2 />} />
+					<Route path='/invoice2' element={<Invoice2 />} />
 					<Route path='/about' element={<About />} />
 				</Routes>
 				<Footer />

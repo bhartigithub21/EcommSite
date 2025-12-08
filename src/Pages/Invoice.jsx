@@ -5,6 +5,7 @@ import Itemdetails from "../Components/Invoice/Itemdetails"
 import BankDetails from "../Components/Invoice/BankDetails"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as Yup from "yup"
+
 import { FormProvider, useForm } from "react-hook-form"
 
 const validationSchema = Yup.object({
@@ -72,22 +73,22 @@ const validationSchema = Yup.object({
 	ifscCode: Yup.string()
 		.matches(/^[A-Z]{4}0[A-Z0-9]{6}$/, "Invalid IFSC code")
 		.required("IFSC code is required"),
+
+	bankName: Yup.string().required("bankName is required"),
+
+	branchName: Yup.string().required("branchName is required"),
 })
 
 const InvoiceForm = () => {
-	const methods = useForm({
-		resolver: yupResolver(validationSchema),
-		defaultValues: {
-			customer: {},
-			seller: {},
-			items: [{ product: "", quantity: 0, price: 0 }],
-			accountHolder: "",
-			accountNumber: "",
-			ifscCode: "",
-		},
-	})
-	const handleSubmit = (e) => {
-		// console.log(formData)
+	const methods = useForm({ resolver: yupResolver(validationSchema) })
+
+	const {
+		formState: { isValid, isDirty },
+		handleSubmit,
+	} = methods
+
+	const finalsubmit = () => {
+		console.log(methods.watch())
 	}
 
 	return (
@@ -101,14 +102,14 @@ const InvoiceForm = () => {
 			}}>
 			<h2>Invoice Form</h2>
 			<FormProvider {...methods}>
-				<form onSubmit={methods.handleSubmit}>
+				<form onSubmit={handleSubmit(finalsubmit)}>
 					<Partydetails heading='Cust info.' subject={"customer"} />
 					<Partydetails heading='Seller info' subject={"seller"} />
 					<Itemdetails />
 					<BankDetails />
 
-					<button type='submit' className='generate-btn'>
-						Genarate Invoice
+					<button disabled={!isDirty} type='submit'>
+						Submit
 					</button>
 				</form>
 			</FormProvider>

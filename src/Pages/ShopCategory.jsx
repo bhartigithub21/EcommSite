@@ -10,7 +10,7 @@ const ShopCategory = (props) => {
 	const [searchText, setSearchText] = useState("")
 
 	// let filteredproducts = all_product.filter(
-	// 	(item) => item.category === props.category
+	// 	(item) => item.category === props.categoryl
 	// )
 
 	let filteredproducts = all_product.filter((item) =>

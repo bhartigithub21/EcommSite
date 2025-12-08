@@ -77,3 +77,19 @@
 	background: #333;
 	color: #fff;
 }
+.shopcategory-search {
+	display: flex;
+	justify-content: center;
+	margin: 20px 0;
+}
+
+.shopcategory-search input {
+	width: 300px;
+	padding: 10px 15px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	font-size: 16px;
+	outline: none;
+	transition: all 0.2s ease-in-out;
+	box-shadow: 0 2px 4px rgba(5, 2, 2, 0.05);
+}

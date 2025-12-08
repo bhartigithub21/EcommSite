@@ -2,24 +2,19 @@ import React from "react"
 import { useFormContext } from "react-hook-form"
 
 const Itemdetails = (props) => {
-	const {
-		register,
-		formState: { errors },
-	} = useFormContext()
-
-	const getTotal = () => {
-		return (
-			formData?.items?.reduce((acc, curr) => {
-				return acc + curr?.quantity * curr?.price
-			}, 0) || 0
-		)
-	}
+	// const getTotal = () => {
+	// 	return (
+	// 		formData?.items?.reduce((acc, curr) => {
+	// 			return acc + curr?.quantity * curr?.price
+	// 		}, 0) || 0
+	// 	)
+	// }
 
 	return (
 		<div>
 			{" "}
 			<div className='invoice-items'>
-				<h3>Invoice Items</h3>
+				{/* <h3>Invoice Items</h3>
 				{formData?.items?.map((item, index) => (
 					<div key={index} className='invoice-item'>
 						<input
@@ -57,10 +52,9 @@ const Itemdetails = (props) => {
 					➕ Add Item
 				</button>
 
-				{/* Total */}
 				<div className='invoice-total'>
 					<h3>Total: ₹ {getTotal()}</h3>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	)

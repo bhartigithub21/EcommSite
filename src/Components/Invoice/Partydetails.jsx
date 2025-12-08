@@ -3,85 +3,87 @@ import { useFormContext } from "react-hook-form"
 
 const Partydetails = (props) => {
 	const { heading, subject } = props
-
 	const {
 		register,
+		watch,
 		formState: { errors },
 	} = useFormContext()
 
-	const fetchCustomerDetailsFromGSTIN = async (gstin, type) => {
-		const response = {
-			flag: true,
-			data: {
-				lgnm: type === "seller" ? "Test Company Pvt. Ltd" : "Ramesh Pvt Ltd",
-				pradr: {
-					adr:
-						type === "seller"
-							? "123, MG Road, Delhi"
-							: "23, Church Street, Bangalore",
-					addr: {
-						stcd: type === "seller" ? "Delhi" : "Karnataka",
-						pncd: type === "seller" ? "110011" : "560037",
-						loc: type === "seller" ? "Delhi" : "Bangalore",
-					},
-				},
-			},
-		}
+	// console.log(formState.errors)
 
-		if (response?.flag) {
-			if (type === "customer") {
-				setFormData((prev) => ({
-					...prev,
-					custfullName: response?.data?.lgnm,
-					custaddress: response?.data?.pradr?.adr,
-					custstcd: response?.data?.pradr?.addr?.stcd,
-					custpincode: response?.data?.pradr?.addr?.pncd,
-					custlocation: response?.data?.pradr?.addr?.loc,
-				}))
-			} else {
-				setFormData((prev) => ({
-					...prev,
-					sellerfullName: response?.data?.lgnm,
-					selleraddress: response?.data?.pradr?.adr,
-					sellerstcd: response?.data?.pradr?.addr?.stcd,
-					sellerpincode: response?.data?.pradr?.addr?.pncd,
-					sellerlocation: response?.data?.pradr?.addr?.loc,
-				}))
-			}
-		} else {
-			alert("Invalid GSTIN")
-		}
-	}
+	// const fetchCustomerDetailsFromGSTIN = async (gstin, type) => {
+	// 	const response = {
+	// 		flag: true,
+	// 		data: {
+	// 			lgnm: type === "seller" ? "Test Company Pvt. Ltd" : "Ramesh Pvt Ltd",
+	// 			pradr: {
+	// 				adr:
+	// 					type === "seller"
+	// 						? "123, MG Road, Delhi"
+	// 						: "23, Church Street, Bangalore",
+	// 				addr: {
+	// 					stcd: type === "seller" ? "Delhi" : "Karnataka",
+	// 					pncd: type === "seller" ? "110011" : "560037",
+	// 					loc: type === "seller" ? "Delhi" : "Bangalore",
+	// 				},
+	// 			},
+	// 		},
+	// 	}
 
-	useEffect(() => {
-		if (formData?.custgstin?.length === 15) {
-			fetchCustomerDetailsFromGSTIN(formData?.custgstin, "customer")
-		} else {
-			setFormData((prev) => ({
-				...prev,
-				custfullName: "",
-				custaddress: "",
-				custstcd: "",
-				custpincode: "",
-				custlocation: "",
-			}))
-		}
-	}, [formData?.custgstin])
+	// 	if (response?.flag) {
+	// 		if (type === "customer") {
+	// 			setFormData((prev) => ({
+	// 				...prev,
+	// 				custfullName: response?.data?.lgnm,
+	// 				custaddress: response?.data?.pradr?.adr,
+	// 				custstcd: response?.data?.pradr?.addr?.stcd,
+	// 				custpincode: response?.data?.pradr?.addr?.pncd,
+	// 				custlocation: response?.data?.pradr?.addr?.loc,
+	// 			}))
+	// 		} else {
+	// 			setFormData((prev) => ({
+	// 				...prev,
+	// 				sellerfullName: response?.data?.lgnm,
+	// 				selleraddress: response?.data?.pradr?.adr,
+	// 				sellerstcd: response?.data?.pradr?.addr?.stcd,
+	// 				sellerpincode: response?.data?.pradr?.addr?.pncd,
+	// 				sellerlocation: response?.data?.pradr?.addr?.loc,
+	// 			}))
+	// 		}
+	// 	} else {
+	// 		alert("Invalid GSTIN")
+	// 	}
+	// }
 
-	useEffect(() => {
-		if (formData?.sellergstin?.length === 15) {
-			fetchCustomerDetailsFromGSTIN(formData?.sellergstin, "seller")
-		} else {
-			setFormData((prev) => ({
-				...prev,
-				sellerfullName: "",
-				selleraddress: "",
-				sellerstcd: "",
-				sellerpincode: "",
-				sellerlocation: "",
-			}))
-		}
-	}, [formData?.sellergstin])
+	// useEffect(() => {
+	// 	if (formData?.custgstin?.length === 15) {
+	// 		fetchCustomerDetailsFromGSTIN(formData?.custgstin, "customer")
+	// 	} else {
+	// 		setFormData((prev) => ({
+	// 			...prev,
+	// 			custfullName: "",
+	// 			custaddress: "",
+	// 			custstcd: "",
+	// 			custpincode: "",
+	// 			custlocation: "",
+	// 		}))
+	// 	}
+	// }, [formData?.custgstin])
+
+	// useEffect(() => {
+	// 	if (formData?.sellergstin?.length === 15) {
+	// 		fetchCustomerDetailsFromGSTIN(formData?.sellergstin, "seller")
+	// 	} else {
+	// 		setFormData((prev) => ({
+	// 			...prev,
+	// 			sellerfullName: "",
+	// 			selleraddress: "",
+	// 			sellerstcd: "",
+	// 			sellerpincode: "",
+	// 			sellerlocation: "",
+	// 		}))
+	// 	}
+	// }, [formData?.sellergstin])
 
 	return (
 		<div className='customer-info'>
@@ -95,64 +97,37 @@ const Partydetails = (props) => {
 				<input
 					type='text'
 					placeholder='Customer gst'
-					onChange={handleValueChange}
-					name={subject === "customer" ? "custgstin" : "sellergstin"}
-					value={
-						subject === "customer"
-							? formData?.custgstin
-							: formData?.sellergstin || ""
-					}
-					required
+					{...register(subject === "customer" ? "custgstin" : "sellergstin")}
 				/>
 
 				<input
 					type='text'
 					placeholder='Customer name'
-					name={subject === "customer" ? "custfullName" : "sellerfullName"}
-					value={
-						subject === "customer"
-							? formData?.custfullName
-							: formData?.sellerfullName || ""
-					}
-					readOnly
-					required
+					{...register(
+						subject === "customer" ? "custfullName" : "sellerfullName"
+					)}
 				/>
 
 				<textarea
 					placeholder='Customer Address'
-					name={subject === "customer" ? "custaddress" : "selleraddress"}
-					value={
-						subject === "customer"
-							? formData?.custaddress
-							: formData?.selleraddress || ""
-					}
-					readOnly
-					required
+					{...register(
+						subject === "customer" ? "custaddress" : "selleraddress"
+					)}
 				/>
-
-				<input
-					type='text'
-					placeholder='state'
-					name={subject === "customer" ? "custstcd" : "sellerstcd"}
-					value={
-						subject === "customer"
-							? formData?.custstcd
-							: formData?.sellerstcd || ""
-					}
-					readOnly
-					required
-				/>
+				<div style={{ display: "flex", flexDirection: "column" }}>
+					<label htmlFor=''>State</label>
+					<input
+						type='text'
+						placeholder='state'
+						{...register(subject === "customer" ? "custstcd" : "sellerstcd")}
+					/>
+				</div>
 				<input
 					type='text'
 					placeholder='pincode'
-					name={subject === "customer" ? "custpincode" : "sellerpincode"}
-					value={
-						subject === "customer"
-							? formData?.custpincode
-							: formData?.sellerpincode || ""
-					}
-					readOnly
-					required
+					{...register(
+						subject === "customer" ? "custpincode" : "sellerpincode"
+					)}
 				/>
 			</div>
 		</div>
