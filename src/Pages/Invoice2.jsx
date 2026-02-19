@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import Partydetails2 from "../Components/Invoice/Partydetails2"
 import Bankdetails2 from "../Components/Invoice/Bankdetails2"
 import ItemDetails2 from "../Components/Invoice/ItemDetails2"
+import "./CSS/Invoice2.css"
 
 const Invoice2 = () => {
 	const [formData, setFormData] = useState({
@@ -26,9 +27,9 @@ const Invoice2 = () => {
 		console.log()
 	}
 	return (
-		<div style={{ width: "90vw", margin: "2px" }}>
-			<h2>Invoice Form</h2>
-			<form onSubmit={handleSubmit}>
+		<div className="invoice-container">
+			<h2 className="invoice-title">Invoice Form</h2>
+			<form onSubmit={handleSubmit} className="invoice-form">
 				<Partydetails2
 					subject='seller'
 					setFormData={setFormData}
@@ -45,16 +46,7 @@ const Invoice2 = () => {
 
 				<button
 					type='Submit'
-					style={{
-						backgroundColor: "#2f6cadff",
-						color: "white",
-						border: "none",
-						padding: "10px 20px",
-						borderradius: "8px",
-						cursor: "pointer",
-						fontsize: "1rem",
-						borderRadius: "10px",
-					}}>
+					className="submit-btn">
 					Submit
 				</button>
 			</form>

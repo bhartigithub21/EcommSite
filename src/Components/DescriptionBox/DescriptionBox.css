@@ -61,3 +61,87 @@
 .descriptionbox-description p {
 	margin-bottom: 15px;
 }
+/* ==========================
+   📱 RESPONSIVE DESIGN
+   ========================== */
+
+/* Tablet: max-width 1024px */
+@media (max-width: 1024px) {
+	.descriptionbox {
+		padding: 20px 25px;
+	}
+
+	.description-nav-box {
+		font-size: 15px;
+		padding: 8px 16px;
+	}
+}
+
+/* Large Mobile: max-width 768px */
+@media (max-width: 768px) {
+	.descriptionbox {
+		max-width: 95%;
+		padding: 18px 20px;
+		margin: 40px auto;
+	}
+
+	.descriptionbox-navigator {
+		gap: 10px;
+		padding-bottom: 10px;
+	}
+
+	.description-nav-box {
+		font-size: 14px;
+		padding: 8px 12px;
+	}
+
+	.descriptionbox-description {
+		font-size: 14px;
+		line-height: 1.55;
+	}
+}
+
+/* Small Mobile: max-width 480px */
+@media (max-width: 480px) {
+	.descriptionbox {
+		padding: 15px;
+		margin: 30px auto;
+	}
+
+	.descriptionbox-navigator {
+		flex-wrap: wrap; /* tabs stack */
+		gap: 8px;
+		border-bottom: none;
+	}
+
+	.description-nav-box {
+		font-size: 13px;
+		padding: 6px 10px;
+		border: 1px solid #eee;
+		border-radius: 6px;
+	}
+
+	.description-nav-box:not(.fade)::after {
+		display: none; /* remove underline for better mobile view */
+	}
+
+	.descriptionbox-description {
+		font-size: 13.5px;
+	}
+}
+
+/* Extra Small Phones: max-width 360px */
+@media (max-width: 360px) {
+	.descriptionbox {
+		padding: 12px;
+	}
+
+	.description-nav-box {
+		font-size: 12px;
+		padding: 5px 8px;
+	}
+
+	.descriptionbox-description {
+		font-size: 13px;
+	}
+}

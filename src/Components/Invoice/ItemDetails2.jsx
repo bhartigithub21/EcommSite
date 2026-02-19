@@ -69,11 +69,11 @@ const ItemDetails2 = ({ formData, setFormData }) => {
 	}
 
 	return (
-		<div>
-			<h2>Item details</h2>
+		<div className="item-details-container">
+			<h2 className="item-details-title">Item details</h2>
 			{formData.items?.map((el, index) => {
 				return (
-					<div key={el.id}>
+					<div key={el.id} className="item-row">
 						<input
 							type='text'
 							placeholder='product'
@@ -81,6 +81,7 @@ const ItemDetails2 = ({ formData, setFormData }) => {
 							onChange={(e) => {
 								handleItemChange(e, index)
 							}}
+							className="item-input"
 						/>
 						<input
 							type='number'
@@ -89,6 +90,7 @@ const ItemDetails2 = ({ formData, setFormData }) => {
 							onChange={(e) => {
 								handleItemChange(e, index)
 							}}
+							className="item-input"
 						/>
 						<input
 							type='number'
@@ -97,24 +99,26 @@ const ItemDetails2 = ({ formData, setFormData }) => {
 							onChange={(e) => {
 								handleItemChange(e, index)
 							}}
+							className="item-input"
 						/>
 
 						<button
 							type='button'
 							onClick={() => {
 								Removeitem(el.id)
-							}}>
+							}}
+							className="remove-item-btn">
 							Remove Item
 						</button>
 					</div>
 				)
 			})}
-			<div>
-				<button type='button' onClick={handleadditem}>
+			<div className="add-item-section">
+				<button type='button' onClick={handleadditem} className="add-item-btn">
 					Add Item
 				</button>
 			</div>
-			<div>
+			<div className="total-section">
 				<h3>Total: ₹{getTotal()}</h3>
 			</div>
 		</div>
