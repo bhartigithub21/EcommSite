@@ -130,6 +130,7 @@ const Partydetails2 = ({ subject, formData, setFormData }) => {
 						subject === "customer" ? formData.customergst : formData.sellergst
 					}
 					onChange={handlechange}
+					required={true}
 					className="party-input"
 				/>
 				<input

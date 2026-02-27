@@ -5,7 +5,7 @@ import Item from "../Components/Item/Item"
 // import dropdown_icon from "../Components/Assets/dropdown_icon.png"
 
 const ShopCategory = (props) => {
-	const { all_product, address } = useContext(ShopContext)
+	const { all_product } = useContext(ShopContext)
 	const [sortOption, setsortOption] = useState("default")
 	const [searchText, setSearchText] = useState("")
 
@@ -14,30 +14,30 @@ const ShopCategory = (props) => {
 	// )
 
 	let filteredproducts = all_product.filter((item) =>
-		item.name.toLowerCase().includes(searchText.toLowerCase())
+		item.name.toLowerCase().includes(searchText.toLowerCase()),
 	)
 
 	if (props.category) {
 		filteredproducts = filteredproducts.filter(
-			(item) => item.category === props.category
+			(item) => item.category === props.category,
 		)
 	}
 
 	if (sortOption === "lowToHigh") {
 		filteredproducts = [...filteredproducts].sort(
-			(a, b) => a.new_price - b.new_price
+			(a, b) => a.new_price - b.new_price,
 		)
 	} else if (sortOption === "highToLow") {
 		filteredproducts = [...filteredproducts].sort(
-			(a, b) => b.new_price - a.new_price
+			(a, b) => b.new_price - a.new_price,
 		)
 	} else if (sortOption === "aToZ") {
 		filteredproducts = [...filteredproducts].sort((a, b) =>
-			a.name.localeCompare(b.name)
+			a.name.localeCompare(b.name),
 		)
 	} else if (sortOption === "zToA") {
 		filteredproducts = [...filteredproducts].sort((a, b) =>
-			b.name.localeCompare(a.name)
+			b.name.localeCompare(a.name),
 		)
 	}
 

@@ -3,11 +3,7 @@ import "./BankDetails.css"
 import { useFormContext } from "react-hook-form"
 
 const BankDetails = (props) => {
-	const {
-		register,
-		watch,
-		formState: { errors },
-	} = useFormContext()
+	const { register } = useFormContext()
 	return (
 		<div className='flex justify-center items-center min-h-screen bg-gray-100'>
 			<div className='w-full bg-white p-8 rounded-2xl shadow-md'>

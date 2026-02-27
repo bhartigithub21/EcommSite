@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 // import "./AddressForm.css";
 
 export default function AddressForm() {
-	const { addAddress, address } = useContext(ShopContext)
+	// const { addAddress, address } = useContext(ShopContext)
 
 	const {
 		register,
