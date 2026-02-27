@@ -62,7 +62,7 @@ const Navbar = () => {
 			</div> */}
 
 			<div className='nav-login-cart'>
-				<Link to='/invoice2'>
+				<Link to='/invoice'>
 					<button>Invoice</button>
 				</Link>
 				<Link to='/login'>
