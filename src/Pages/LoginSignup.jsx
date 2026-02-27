@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import "./CSS/LoginSignup.css"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
 const LoginSignup = () => {
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	const [isLogin, setIsLogin] = useState(false) // toggle between login/signup
 	const [formData, setFormData] = useState({
 		name: "",
@@ -48,13 +48,13 @@ const LoginSignup = () => {
 		// 	navigate("/")
 		// }
 
-		const handleLogin = () => {
-			if (formData.email === "email" && formData.password === "password") {
-				navigate("/")
-			} else {
-				alert("login unsuccessful")
-			}
-		}
+		// const handleLogin = () => {
+		// 	if (formData.email === "email" && formData.password === "password") {
+		// 		navigate("/")
+		// 	} else {
+		// 		alert("login unsuccessful")
+		// 	}
+		// }
 
 		setFormData({
 			name: "",

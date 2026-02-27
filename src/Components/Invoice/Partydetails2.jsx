@@ -118,10 +118,12 @@ const Partydetails2 = ({ subject, formData, setFormData }) => {
 	}
 
 	return (
-		<div className="party-details-container">
-			<h2 className="party-details-title">{subject === "customer" ? "Customer Details" : "Seller Details"}</h2>
+		<div className='party-details-container'>
+			<h2 className='party-details-title'>
+				{subject === "customer" ? "Customer Details" : "Seller Details"}
+			</h2>
 
-			<div className="party-input-group">
+			<div className='party-input-group'>
 				<input
 					type='text'
 					placeholder='customer gst'
@@ -131,25 +133,27 @@ const Partydetails2 = ({ subject, formData, setFormData }) => {
 					}
 					onChange={handlechange}
 					required={true}
-					className="party-input"
+					className='party-input'
 				/>
 				<input
 					type={
 						formData.country === "India"
 							? "number"
-							: formData.x == "dfg"
-							? "password"
-							: formData.ffd == "Fdf"
-							? "checkbox"
-							: "text"
+							: formData.x === "dfg"
+								? "password"
+								: formData.ffd === "Fdf"
+									? "checkbox"
+									: "text"
 					}
 					placeholder='customer email'
 					name={subject === "customer" ? "customeremail" : "selleremail"}
 					value={
-						subject === "customer" ? formData.customeremail : formData.selleremail
+						subject === "customer"
+							? formData.customeremail
+							: formData.selleremail
 					}
 					onChange={handlechange}
-					className="party-input"
+					className='party-input'
 				/>
 				<input
 					type='text'
@@ -159,7 +163,7 @@ const Partydetails2 = ({ subject, formData, setFormData }) => {
 						subject === "customer" ? formData.customername : formData.sellername
 					}
 					onChange={handlechange}
-					className="party-input"
+					className='party-input'
 				/>
 				<input
 					type='text'
@@ -171,17 +175,19 @@ const Partydetails2 = ({ subject, formData, setFormData }) => {
 							: formData.sellercountry
 					}
 					onChange={handlechange}
-					className="party-input"
+					className='party-input'
 				/>
 				<input
 					type='text'
 					placeholder='state'
 					name={subject === "customer" ? "customerstate" : "sellerstate"}
 					value={
-						subject === "customer" ? formData.customerstate : formData.sellerstate
+						subject === "customer"
+							? formData.customerstate
+							: formData.sellerstate
 					}
 					onChange={handlechange}
-					className="party-input"
+					className='party-input'
 				/>
 				<input
 					type='text'
@@ -193,7 +199,7 @@ const Partydetails2 = ({ subject, formData, setFormData }) => {
 							: formData.sellerAddress
 					}
 					onChange={handlechange}
-					className="party-input"
+					className='party-input'
 				/>
 				<input
 					type='number'
@@ -205,7 +211,7 @@ const Partydetails2 = ({ subject, formData, setFormData }) => {
 							: formData.sellerpincode
 					}
 					onChange={handlechange}
-					className="party-input"
+					className='party-input'
 				/>
 			</div>
 		</div>
